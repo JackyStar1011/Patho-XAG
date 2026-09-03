@@ -162,12 +162,12 @@ def load_metadata(
     # --------------------------------------------------------
     # 5. Resolve each filename to its actual file path
     # --------------------------------------------------------
-
     df["image_path"] = df["filename"].map(image_index)
 
-    # Convert Path / NaN into strings for easier CSV export later.
     df["image_path"] = df["image_path"].apply(
-        lambda path: str(path) if isinstance(path, Path) else None
+        lambda path: str(path.relative_to(PROJECT_ROOT))
+        if isinstance(path, Path)
+        else None
     )
 
     # --------------------------------------------------------
