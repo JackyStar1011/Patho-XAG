@@ -3,7 +3,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from metadata import load_metadata, get_wsi_summary
+from src.data.metadata import load_metadata, get_wsi_summary
 
 
 # ============================================================
